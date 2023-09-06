@@ -17,9 +17,7 @@ public class Tarefas {
 
     Scanner teclado = new Scanner(System.in);
 
-    String titulo, descricao;
-
-    int dataVencimento;
+    String titulo, descricao, dataVencimento;
 
     List<Tarefas> tarefa = new ArrayList<>();
 
@@ -29,10 +27,16 @@ public class Tarefas {
         System.out.println("Qual a descrição da tarefa?");
         descricao = teclado.nextLine();
         System.out.println("Qual a data de vencimento?");
-        dataVencimento = teclado.nextInt();
-        teclado.nextLine();
+        dataVencimento = teclado.nextLine();
+
         tarefa.add(tarefas);
-        System.out.println();
+
+        System.out.println(tarefas.titulo);
+
+    }
+
+    public void listarTarefas(){
+
     }
 
 
