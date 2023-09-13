@@ -19,24 +19,48 @@ public class Tarefas {
 
     String titulo, descricao, dataVencimento;
 
-    List<Tarefas> tarefa = new ArrayList<>();
 
-    public void criarTarefas(Tarefas tarefas){
+    List<Tarefas> listTarefas = new ArrayList<>();
+
+
+    public Tarefas criarTarefas(){
+
+        Tarefas tarefas = new Tarefas();
         System.out.println("Qual é o nome da tarefa?");
-        titulo = teclado.nextLine();
+        tarefas.titulo = teclado.nextLine();
         System.out.println("Qual a descrição da tarefa?");
-        descricao = teclado.nextLine();
+        tarefas.descricao = teclado.nextLine();
         System.out.println("Qual a data de vencimento?");
-        dataVencimento = teclado.nextLine();
+        tarefas.dataVencimento = teclado.nextLine();
 
-        tarefa.add(tarefas);
+        return tarefas;
+    }
 
-        System.out.println(tarefas.titulo);
+    public void adicionarTarefa(Tarefas tarefas){
+        listTarefas.add(tarefas);
 
     }
 
     public void listarTarefas(){
 
+        for (Tarefas tarefas : listTarefas){
+            System.out.println("O nome da tarefa é: " + tarefas.titulo);
+            System.out.println("A descrição é: " + tarefas.descricao);
+            System.out.println("A data de vencimento é: " + tarefas.dataVencimento);
+            System.out.println();
+        }
+    }
+
+    public void atualizarTarefas(int indice){
+        if(indice >= 0 && indice < listTarefas.size()) {
+            System.out.println("Digite o número da tarefa que deseja atualizar");
+            Tarefas tarefas = listTarefas.get(indice);
+            System.out.println("O nome da tarefa que será alterada é: " + tarefas.titulo);
+            System.out.println("Informe o novo nome:");
+            String novaTarefa = teclado.nextLine();
+            tarefas.titulo = novaTarefa;
+            listTarefas.set(indice, tarefas);
+        }
     }
 
 

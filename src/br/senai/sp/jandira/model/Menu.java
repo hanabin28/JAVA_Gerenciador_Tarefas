@@ -12,23 +12,56 @@ public class Menu {
 
         Scanner teclado = new Scanner(System.in);
 
-        Tarefas tarefas = new Tarefas();
+       Tarefas objTarefa = new Tarefas();
+
 
         public void Menu(){
             System.out.println("--- Bem-vindo(a) ao Sistema Gerenciador de Tarefas! ---");
-            System.out.println("O que deseja fazer? \n" +
-                    "[1 - Criar tarefas]\n" +
-                    "[2 - Atualizar tarefas]\n" +
-                    "[3 - Remover tarefas]\n" +
-                    "[4 - Listar tarefas]");
-            int resposta = teclado.nextInt();
-            teclado.nextLine();
 
-            switch (resposta){
-                case 1:
-                    tarefas.criarTarefas(tarefas);
-                    break;
+            boolean valida = true;
+
+            while (valida) {
+
+                System.out.println("O que deseja fazer? \n" +
+                        "[1 - Criar tarefas]\n" +
+                        "[2 - Listar tarefas]\n" +
+                        "[3 - Atualizar tarefas]\n" +
+                        "[4 - Remover tarefas]\n" +
+                        "[5 - Sair]");
+                int resposta = teclado.nextInt();
+                teclado.nextLine();
+                System.out.println();
+
+
+                switch (resposta) {
+                    case 1:
+                        Tarefas tarefa = objTarefa.criarTarefas();
+                        objTarefa.adicionarTarefa(tarefa);
+                        System.out.println("Tarefa criada com sucesso!!");
+                        System.out.println();
+                        break;
+
+                    case 2:
+                        objTarefa.listarTarefas();
+                        System.out.println();
+                        break;
+
+                    case 3:
+                        objTarefa.listarTarefas();
+                        int indice = teclado.nextInt() -1;
+                        teclado.nextLine();
+                        objTarefa.atualizarTarefas(indice);
+                        break;
+
+
+                    case 4:
+
+
+                    case 5:
+
+                }
             }
+
         }
 
 
